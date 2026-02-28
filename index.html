@@ -17,6 +17,7 @@
       --line: rgba(42,42,42,.12);
       --shadow: 0 18px 55px rgba(0,0,0,.08);
       --radius: 22px;
+      --accent: #d1bdac;
     }
 
     *{ box-sizing:border-box; }
@@ -132,7 +133,10 @@
       font-size: 14px;
       color: var(--muted);
     }
-    .pill strong{ color: var(--text); font-weight:600; }
+    .pill strong{
+  color: var(--accent);
+  font-weight:600;
+}
 
     .grid{
       margin-top: 18px;
@@ -168,7 +172,7 @@
     }
     .unit{
       border-radius: 16px;
-      border: 1px solid var(--line);
+      border: 1px solid var(--accent);
       background: rgba(255,255,255,.65);
       padding: 12px 10px;
       text-align:center;
