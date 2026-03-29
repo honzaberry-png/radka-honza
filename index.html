@@ -65,41 +65,52 @@
     }
 
     .subtitle{
-      margin: 14px auto 0;
+      margin: 18px auto 0;
       text-align:center;
       color: var(--muted);
       font-size: 16px;
       max-width: 60ch;
-      line-height: 1.7;
+      line-height: 1.8;
+    }
+
+    .hero-yes{
+      display:block;
+      margin-top: 8px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 20px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #4a443d;
     }
 
     .wedding-date{
       display:block;
       font-family: Georgia, "Times New Roman", serif;
-      font-size: 34px;
-      letter-spacing: 3px;
-      margin-top: 10px;
+      font-size: 40px;
+      letter-spacing: 6px;
+      margin-top: 14px;
       color: var(--accent);
+      text-transform: uppercase;
     }
 
-    .pillrow{
-      margin-top: 18px;
-      display:flex;
-      justify-content:center;
-      gap:10px;
-      flex-wrap:wrap;
+    .hero-time{
+      display:block;
+      margin-top: 14px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 24px;
+      letter-spacing: 2px;
+      color: #4a443d;
+      font-style: italic;
     }
-    .pill{
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.7);
-      padding: 10px 14px;
-      border-radius: 999px;
-      font-size: 14px;
-      color: var(--muted);
-    }
-    .pill strong{
-      color: var(--accent);
-      font-weight:600;
+
+    .hero-place{
+      display:block;
+      margin-top: 14px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 18px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #4a443d;
     }
 
     .grid{
@@ -226,15 +237,11 @@
       <div style="width:120px;height:2px;background:#d1bdac;margin:10px auto 20px auto;border-radius:2px;"></div>
 
       <p class="subtitle">
-        Řekneme si své ano<br>
-        <span class="wedding-date">20. júna 2026</span>
-        Těšíme se, že tento den prožijeme spolu s vámi.<br>
-        Oslávime to spolu s rodinou a priateľmi.
+        <span class="hero-yes">ŘEKNEME SI SVÉ “ANO”</span>
+        <span class="wedding-date">20. JÚNA 2026</span>
+        <span class="hero-time">o 15 hodine</span>
+        <span class="hero-place">PT JAVORINA NA STAREJ MYJAVE</span>
       </p>
-
-      <div class="pillrow">
-        <span class="pill"><strong>Datum:</strong> 20. 6. 2026</span>
-      </div>
 
       <div class="grid">
         <div class="card" id="odpočet">
