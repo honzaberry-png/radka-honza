@@ -237,73 +237,29 @@
 
     .timeline{
       position: relative;
-      margin-top: 12px;
+      margin: 14px auto 0;
+      max-width: 460px;
       padding: 6px 0;
     }
 
     .timeline::before{
       content:"";
       position:absolute;
-      top: 0;
-      bottom: 0;
-      left: 50%;
+      top: 8px;
+      bottom: 8px;
+      left: 30px;
       width: 1px;
       background: rgba(42,42,42,.14);
-      transform: translateX(-50%);
     }
 
     .timeline-item{
       position:relative;
       display:grid;
-      grid-template-columns: 1fr 24px 1fr;
+      grid-template-columns: 20px 56px 1fr;
+      gap: 18px;
       align-items:center;
-      min-height: 86px;
+      min-height: 78px;
       padding: 6px 0;
-    }
-
-    .timeline-side{
-      min-width: 0;
-      display:flex;
-      align-items:center;
-      gap: 14px;
-    }
-
-    .timeline-side.left{
-      justify-content:flex-end;
-      text-align:right;
-      padding-right: 22px;
-    }
-
-    .timeline-side.right{
-      justify-content:flex-start;
-      text-align:left;
-      padding-left: 22px;
-    }
-
-    .timeline-text{
-      min-width:0;
-    }
-
-    .timeline-time{
-      display:block;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 24px;
-      letter-spacing: 1px;
-      color: #4a443d;
-    }
-
-    .timeline-label{
-      display:block;
-      margin-top: 4px;
-      font-size: 13px;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-      color: var(--text);
-      line-height: 1.4;
-    }
-
-    .timeline-item.alt .timeline-label{
-      color: #5f6b4d;
     }
 
     .timeline-dot{
@@ -311,30 +267,29 @@
       z-index:2;
       width: 10px;
       height: 10px;
-      margin: 0 auto;
+      margin-left: 5px;
       border-radius: 50%;
       background: var(--accent);
-      box-shadow: 0 0 0 5px rgba(255,250,245,.95);
+      box-shadow: 0 0 0 5px rgba(255,250,245,.96);
     }
 
     .timeline-event-icon{
       display:flex;
       align-items:center;
       justify-content:center;
-      width: 52px;
-      height: 52px;
+      width: 56px;
+      height: 56px;
       border-radius:999px;
       background: #fffaf5;
       border: 1px solid rgba(209,189,172,.55);
-      box-shadow: 0 6px 18px rgba(0,0,0,.05);
+      box-shadow: 0 8px 20px rgba(0,0,0,.06);
       color: var(--olive);
-      flex: 0 0 52px;
     }
 
     .timeline-event-icon svg{
       display:block;
-      width:22px;
-      height:22px;
+      width:24px;
+      height:24px;
       stroke: currentColor;
       fill: none;
       stroke-width: 1.8;
@@ -342,52 +297,70 @@
       stroke-linejoin: round;
     }
 
-    .timeline-empty{
-      min-height:1px;
+    .timeline-text{
+      min-width:0;
+      text-align:left;
+    }
+
+    .timeline-time{
+      display:block;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 25px;
+      letter-spacing: 1px;
+      color: #4a443d;
+      line-height: 1.1;
+    }
+
+    .timeline-label{
+      display:block;
+      margin-top: 4px;
+      font-size: 13px;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: var(--text);
+      line-height: 1.35;
+    }
+
+    .timeline-item.alt .timeline-label{
+      color: #5f6b4d;
     }
 
     @media (max-width: 640px){
-      .timeline::before{
-        left: 18px;
-        transform:none;
+      .timeline{
+        max-width: 100%;
       }
 
       .timeline-item{
-        grid-template-columns: 24px 1fr;
+        grid-template-columns: 18px 52px 1fr;
         gap: 14px;
         min-height: 72px;
       }
 
+      .timeline::before{
+        left: 27px;
+      }
+
       .timeline-dot{
-        margin-top: 0;
+        margin-left: 4px;
       }
 
-      .timeline-side,
-      .timeline-side.left,
-      .timeline-side.right{
-        grid-column: 2;
-        justify-content:flex-start;
-        text-align:left;
-        padding-left: 14px;
-        padding-right: 0;
+      .timeline-event-icon{
+        width: 52px;
+        height: 52px;
       }
 
-      .timeline-empty{
-        display:none;
-      }
-
-      .timeline-side.left .timeline-text,
-      .timeline-side.right .timeline-text{
-        order: 2;
-      }
-
-      .timeline-side.left .timeline-event-icon,
-      .timeline-side.right .timeline-event-icon{
-        order: 1;
+      .timeline-event-icon svg{
+        width:22px;
+        height:22px;
       }
 
       .timeline-time{
-        font-size: 22px;
+        font-size: 23px;
+      }
+
+      .timeline-label{
+        font-size: 12px;
+        letter-spacing: 1.2px;
       }
     }
   </style>
@@ -460,91 +433,67 @@
         <h2><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 8v4l2.5 2.5"></path></svg></span>Harmonogram našeho dne</h2>
         <div class="timeline" aria-label="Harmonogram našeho dne">
           <div class="timeline-item">
-            <div class="timeline-side left">
-              <div class="timeline-text">
-                <span class="timeline-time">14:00</span>
-                <span class="timeline-label">Příjezd hostů</span>
-              </div>
-              <span class="timeline-event-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 14h2l2-5h8l3 5h3"></path><circle cx="7" cy="17" r="2"></circle><circle cx="17" cy="17" r="2"></circle><path d="M5 14V9h10"></path></svg></span>
-            </div>
             <div class="timeline-dot"></div>
-            <div class="timeline-empty"></div>
+            <span class="timeline-event-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 14h2l2-5h8l3 5h3"></path><circle cx="7" cy="17" r="2"></circle><circle cx="17" cy="17" r="2"></circle><path d="M5 14V9h10"></path></svg></span>
+            <div class="timeline-text">
+              <span class="timeline-time">14:00</span>
+              <span class="timeline-label">Příjezd hostů</span>
+            </div>
           </div>
           <div class="timeline-item alt">
-            <div class="timeline-empty"></div>
             <div class="timeline-dot"></div>
-            <div class="timeline-side right">
-              <span class="timeline-event-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="12" r="3.5"></circle><circle cx="15" cy="12" r="3.5"></circle><path d="M11.5 12h1"></path></svg></span>
-              <div class="timeline-text">
-                <span class="timeline-time">15:00</span>
-                <span class="timeline-label">Obrad</span>
-              </div>
+            <span class="timeline-event-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="12" r="3.5"></circle><circle cx="15" cy="12" r="3.5"></circle><path d="M11.5 12h1"></path></svg></span>
+            <div class="timeline-text">
+              <span class="timeline-time">15:00</span>
+              <span class="timeline-label">Obrad</span>
             </div>
           </div>
           <div class="timeline-item">
-            <div class="timeline-side left">
-              <div class="timeline-text">
-                <span class="timeline-time">16:30</span>
-                <span class="timeline-label">Svatební hostina</span>
-              </div>
-              <span class="timeline-event-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4v8"></path><path d="M10 4v8"></path><path d="M7 8h3"></path><path d="M15 4v16"></path><path d="M15 11c2 0 3-1.6 3-3.5S17 4 15 4"></path></svg></span>
-            </div>
             <div class="timeline-dot"></div>
-            <div class="timeline-empty"></div>
+            <span class="timeline-event-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4v8"></path><path d="M10 4v8"></path><path d="M7 8h3"></path><path d="M15 4v16"></path><path d="M15 11c2 0 3-1.6 3-3.5S17 4 15 4"></path></svg></span>
+            <div class="timeline-text">
+              <span class="timeline-time">16:30</span>
+              <span class="timeline-label">Svatební hostina</span>
+            </div>
           </div>
           <div class="timeline-item alt">
-            <div class="timeline-empty"></div>
             <div class="timeline-dot"></div>
-            <div class="timeline-side right">
-              <span class="timeline-event-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="2"></circle><circle cx="15" cy="8" r="2"></circle><path d="M7 20v-5l2-3"></path><path d="M17 20v-5l-2-3"></path><path d="M9 12l3 2 3-2"></path></svg></span>
-              <div class="timeline-text">
-                <span class="timeline-time">17:30</span>
-                <span class="timeline-label">Prvý tanec</span>
-              </div>
+            <span class="timeline-event-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="2"></circle><circle cx="15" cy="8" r="2"></circle><path d="M7 20v-5l2-3"></path><path d="M17 20v-5l-2-3"></path><path d="M9 12l3 2 3-2"></path></svg></span>
+            <div class="timeline-text">
+              <span class="timeline-time">17:30</span>
+              <span class="timeline-label">Prvý tanec</span>
             </div>
           </div>
           <div class="timeline-item">
-            <div class="timeline-side left">
-              <div class="timeline-text">
-                <span class="timeline-time">18:00</span>
-                <span class="timeline-label">Focení</span>
-              </div>
-              <span class="timeline-event-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 8h4l1.5-2h5L16 8h4v10H4Z"></path><circle cx="12" cy="13" r="3.5"></circle></svg></span>
-            </div>
             <div class="timeline-dot"></div>
-            <div class="timeline-empty"></div>
+            <span class="timeline-event-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 8h4l1.5-2h5L16 8h4v10H4Z"></path><circle cx="12" cy="13" r="3.5"></circle></svg></span>
+            <div class="timeline-text">
+              <span class="timeline-time">18:00</span>
+              <span class="timeline-label">Focení</span>
+            </div>
           </div>
           <div class="timeline-item alt">
-            <div class="timeline-empty"></div>
             <div class="timeline-dot"></div>
-            <div class="timeline-side right">
-              <span class="timeline-event-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4v8"></path><path d="M10 4v8"></path><path d="M7 8h3"></path><path d="M15 4v16"></path><path d="M15 11c2 0 3-1.6 3-3.5S17 4 15 4"></path><path d="M5 19h14"></path></svg></span>
-              <div class="timeline-text">
-                <span class="timeline-time">20:00</span>
-                <span class="timeline-label">Raut</span>
-              </div>
+            <span class="timeline-event-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4v8"></path><path d="M10 4v8"></path><path d="M7 8h3"></path><path d="M15 4v16"></path><path d="M15 11c2 0 3-1.6 3-3.5S17 4 15 4"></path><path d="M5 19h14"></path></svg></span>
+            <div class="timeline-text">
+              <span class="timeline-time">20:00</span>
+              <span class="timeline-label">Raut</span>
             </div>
           </div>
           <div class="timeline-item">
-            <div class="timeline-side left">
-              <div class="timeline-text">
-                <span class="timeline-time">21:00</span>
-                <span class="timeline-label">Krájení dortu</span>
-              </div>
-              <span class="timeline-event-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 18h14"></path><path d="M7 18v-5h10v5"></path><path d="M8.5 13a2.5 2.5 0 0 1 5 0"></path><path d="M12 7v3"></path><path d="M11 7h2"></path></svg></span>
-            </div>
             <div class="timeline-dot"></div>
-            <div class="timeline-empty"></div>
+            <span class="timeline-event-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 18h14"></path><path d="M7 18v-5h10v5"></path><path d="M8.5 13a2.5 2.5 0 0 1 5 0"></path><path d="M12 7v3"></path><path d="M11 7h2"></path></svg></span>
+            <div class="timeline-text">
+              <span class="timeline-time">21:00</span>
+              <span class="timeline-label">Krájení dortu</span>
+            </div>
           </div>
           <div class="timeline-item alt">
-            <div class="timeline-empty"></div>
             <div class="timeline-dot"></div>
-            <div class="timeline-side right">
-              <span class="timeline-event-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5c1.2 1.8 2.8 3 4.3 4.5 1.2 1.2 1.7 2.3 1.7 3.7A6 6 0 0 1 6 13.2c0-1.4.5-2.5 1.7-3.7C9.2 8 10.8 6.8 12 5Z"></path><path d="M12 13.5c-.8 1.5-2.2 2.7-3.8 3.8"></path><path d="M12 13.5c.8 1.5 2.2 2.7 3.8 3.8"></path><path d="M12 13.5V20"></path></svg></span>
-              <div class="timeline-text">
-                <span class="timeline-time">22:00</span>
-                <span class="timeline-label">Hod kytice</span>
-              </div>
+            <span class="timeline-event-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5c1.2 1.8 2.8 3 4.3 4.5 1.2 1.2 1.7 2.3 1.7 3.7A6 6 0 0 1 6 13.2c0-1.4.5-2.5 1.7-3.7C9.2 8 10.8 6.8 12 5Z"></path><path d="M12 13.5c-.8 1.5-2.2 2.7-3.8 3.8"></path><path d="M12 13.5c.8 1.5 2.2 2.7 3.8 3.8"></path><path d="M12 13.5V20"></path></svg></span>
+            <div class="timeline-text">
+              <span class="timeline-time">22:00</span>
+              <span class="timeline-label">Hod kytice</span>
             </div>
           </div>
         </div>
