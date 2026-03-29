@@ -263,27 +263,29 @@
     }
 
     .timeline-side{
-      display:flex;
+      display:grid;
       align-items:center;
-      gap: 6px;
       min-width:0;
+      width: 136px;
     }
 
     .timeline-side.left{
-      justify-content:flex-end;
-      text-align:left;
-      padding-right: 20px;
+      grid-template-columns: 30px 1fr;
+      column-gap: 8px;
+      justify-self:end;
+      padding-right: 18px;
     }
 
     .timeline-side.right{
-      justify-content:flex-start;
-      text-align:left;
-      padding-left: 20px;
+      grid-template-columns: 1fr 30px;
+      column-gap: 8px;
+      justify-self:start;
+      padding-left: 18px;
     }
 
     .timeline-text{
-      min-width: 110px;
-      max-width: 110px;
+      min-width: 0;
+      max-width: 98px;
       text-align:left;
     }
 
@@ -322,10 +324,9 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      width: 40px;
-      height: 40px;
+      width: 30px;
+      height: 30px;
       color: #7f7a73;
-      flex: 0 0 40px;
     }
 
     .timeline-event-icon svg{
@@ -350,14 +351,15 @@
         min-height: 68px;
       }
 
-      .timeline-side.left{ padding-right: 12px; }
-      .timeline-side.right{ padding-left: 12px; }
-      .timeline-text{ min-width: 92px; max-width: 92px; }
+      .timeline-side{ width: 112px; }
+      .timeline-side.left{ grid-template-columns: 26px 1fr; padding-right: 12px; column-gap: 6px; }
+      .timeline-side.right{ grid-template-columns: 1fr 26px; padding-left: 12px; column-gap: 6px; }
+      .timeline-text{ max-width: 80px; }
 
       .timeline-time{ font-size: 20px; }
       .timeline-label{ font-size: 9px; letter-spacing: 1.4px; }
-      .timeline-event-icon{ width: 34px; height: 34px; flex-basis: 34px; }
-      .timeline-event-icon svg{ width: 25px; height: 25px; }
+      .timeline-event-icon{ width: 26px; height: 26px; }
+      .timeline-event-icon svg{ width: 20px; height: 20px; }
     }
   </style>
 </head>
