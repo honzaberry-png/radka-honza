@@ -128,8 +128,30 @@
       margin: 0 0 10px;
       font-size: 18px;
       letter-spacing:.2px;
+      display:flex;
+      align-items:center;
+      gap:10px;
     }
     .muted{ color: var(--muted); }
+
+    .icon{
+      width: 18px;
+      height: 18px;
+      flex: 0 0 18px;
+      color: var(--olive);
+      opacity:.9;
+    }
+
+    .icon svg{
+      display:block;
+      width:100%;
+      height:100%;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
 
     .countdown{
       display:grid;
@@ -235,7 +257,7 @@
 
       <div class="grid">
         <div class="card" id="odpočet">
-          <h2>Do svatby zbývá:</h2>
+          <h2><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"></circle><path d="M12 9v4l2.5 2.5"></path><path d="M9 3h6"></path></svg></span>Do svatby zbývá:</h2>
 
           <div class="countdown" aria-label="Odpočet">
             <div class="unit">
@@ -258,11 +280,12 @@
         </div>
 
         <div class="card" id="misto">
-          <h2>Miesto konania</h2>
+          <h2><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s6-5.4 6-11a6 6 0 1 0-12 0c0 5.6 6 11 6 11Z"></path><circle cx="12" cy="10" r="2.5"></circle></svg></span>Miesto konania</h2>
 
           <div class="btnrow">
             <a class="btn" href="https://maps.app.goo.gl/DP8mfigJWUSMMVUE8" target="_blank" rel="noopener">
-              📍 Zobrazit místo na mapě
+              <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s6-5.4 6-11a6 6 0 1 0-12 0c0 5.6 6 11 6 11Z"></path><circle cx="12" cy="10" r="2.5"></circle></svg></span>
+              Zobrazit místo na mapě
             </a>
           </div>
 
@@ -271,14 +294,14 @@
       </div>
 
       <div class="card" id="rsvp" style="margin-top:14px;">
-        <h2>Potvrzení účasti</h2>
+        <h2><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg></span>Potvrzení účasti</h2>
         <div class="small">
-          <p>Pokiaľ sa nemôžete zúčastniť, dajte nám prosím vedieť do konca mája.</p>
+          <p>Počítame s vašou účasťou, ale pokiaľ sa nemôžete zúčastniť, napíšte Radke alebo Honzovi najneskôr do konca mája.</p>
         </div>
       </div>
 
       <div class="card" id="info" style="margin-top:14px;">
-        <h2>Harmonogram</h2>
+        <h2><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 3v3"></path><path d="M16 3v3"></path><rect x="4" y="5.5" width="16" height="14.5" rx="2"></rect><path d="M4 9.5h16"></path></svg></span>Harmonogram</h2>
         <div class="small">
 
           <p><strong>Potvrzení účasti</strong> prosíme do <strong>konce května 2026</strong>.</p>
@@ -286,7 +309,7 @@
 
           <div class="divider"></div>
 
-          <div class="section-title">3️⃣ Průběh dne</div>
+          <div class="section-title">Průběh dne</div>
           <div class="note">Jednoduchá časová osa celého dne.</div>
           <ul class="clean">
             <li>Příjezd hostů</li>
